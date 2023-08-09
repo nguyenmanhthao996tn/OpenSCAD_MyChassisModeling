@@ -19,7 +19,7 @@ connector_hole_diameter = 3.05;
 
 /*** MAIN ***/
 //color("#0000AF")
-render()
+//render()
 draw_chassis();
 
 /*** FUNCTION DEFINE ***/
