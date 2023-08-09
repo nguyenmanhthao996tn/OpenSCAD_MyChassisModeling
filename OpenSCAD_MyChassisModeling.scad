@@ -3,7 +3,7 @@ $fn=100;
 /*** GLOBAL VARIABLES ***/
 // The pillar
 pillar_size = 8.5;
-pillar_z = 20;
+pillar_z = 18;
 pillar_z_offset = 8.5;
 
 // The pillar HOLES
@@ -14,8 +14,15 @@ pillar_hole_diameter = 3.05;
 connector_thickness = 2.5;
 
 // The connector HOLES
-connector_hole_distance = 60;
+connector_hole_distance = 58;
 connector_hole_diameter = 3.05;
+
+// The vertical support
+vertical_support_thickness = 2.5;
+vertical_support_width = 18;
+vertical_support_hole_diameter = 3.05;
+vertical_support_holes_distance1 = 73;
+vertical_support_holes_distance2 = 58;
 
 /*** MAIN ***/
 //color("#0000AF")
@@ -28,6 +35,7 @@ module draw_chassis() {
     union() {
         draw_connectors();
         draw_pillars();
+        draw_vertical_supports();
     }
 }
 
@@ -53,7 +61,7 @@ module draw_a_pillar_w_holes() {
         draw_a_pillar();
         
         // Hole
-        draw_pillar_holes();
+        // draw_pillar_holes();
     }
 }
 
@@ -95,7 +103,44 @@ module draw_connectors() {
     draw_a_connector();
 }
 
+module draw_vertical_supports() {
+    difference() {
+        // Vertical support body
+        for (i=[0:1:3])
+        rotate([0, 0, 90*i])
+        mirror_copy([0, 1, 0])
+        draw_a_vertical_support_body();
+        
+        // Vertical support holes
+        for (i=[0:1:3])
+        rotate([0, 0, 90*i])
+        mirror_copy([0, 1, 0])
+        draw_a_vertical_support_hole();
+    }
+    
+}
+
+module draw_a_vertical_support_body() {
+    translate([50-(vertical_support_thickness/2), -50+(vertical_support_width/2)+pillar_size, -(pillar_z - pillar_z_offset)/2])
+    cube([vertical_support_thickness, vertical_support_width, (pillar_z - pillar_z_offset)], center=true);
+}
+
+module draw_a_vertical_support_hole() {
+    translate([0, -(vertical_support_holes_distance1/2), -5])
+    rotate([0, 90, 0])
+    cylinder(h=500, d=vertical_support_hole_diameter, center=true);
+    
+    translate([0, -(vertical_support_holes_distance2/2), -5])
+    rotate([0, 90, 0])
+    cylinder(h=500, d=vertical_support_hole_diameter, center=true);
+}
+
 module rotate_copy(vector) {
     children();
     rotate(vector) children();
+}
+
+module mirror_copy(vector) {
+    children();
+    mirror(vector) children();
 }
