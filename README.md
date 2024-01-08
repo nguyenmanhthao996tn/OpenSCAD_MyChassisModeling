@@ -17,6 +17,33 @@ Current version: OpenSCAD_MyChassisModeling-Aug0923-ver03
 
 ![Rendered with NO diamond cut on top](render_3d_models/OpenSCAD_MyChassisModeling-Aug0923-ver03_nodiamondcut.png)
 
+---
+
+# New Bottom part with crew hole(s)
+
+To measure the antenna in the charmber, the satellite needs to be fixed at least 50cm (according to our simulation) away from the platform. I made 4 different versions for this.
+
+## Changlogs
+
+### Version 1
+
+- Solid metal plaform
+- 1 fixing screw in the center of the platform
+- Added 4 slots (2mm width) for the RF cables
+
+### Version 2
+
+- The fixing extender to go 2mm further inside the platform to provide the robustnest
+
+### Version 3
+
+- Add another rotational fixing part
+
+### Version 4
+
+**Based on Verion 1**
+
+- There are 4 fixing screw in the center of the platform
 
 ---
 
