@@ -8,7 +8,7 @@ pillar_z_offset = 8.5;
 
 // The pillar HOLES
 pillar_hole_offset = -5.5;
-pillar_hole_diameter = 2.05; // M2.5 with tapping
+pillar_hole_diameter = 3.05; // M2.5 with tapping
 
 // The connector
 connector_size = 7;
@@ -16,12 +16,12 @@ connector_thickness = 2.5;
 
 // The connector HOLES
 connector_hole_distance = 58;
-connector_hole_diameter = 2.05; // M2.5 with tapping
+connector_hole_diameter = 3.05; // M2.5 with tapping
 
 // The vertical support
 vertical_support_thickness = 1.5;
 vertical_support_width = 18;
-vertical_support_hole_diameter = 2.05; // M2.5 with tapping
+vertical_support_hole_diameter = 3.05; // M2.5 with tapping
 vertical_support_holes_distance1 = 73;
 vertical_support_holes_distance2 = 58;
 
